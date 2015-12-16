@@ -1,5 +1,8 @@
 from flask import Flask
+from flask.ext.runner import Runner
+
 app = Flask(__name__)
+runner = Runner(app)
 
 @app.route('/')
 def hello():
@@ -10,5 +13,5 @@ def hello_name(name):
     return "Hello {}!".format(name)
 
 if __name__=='__main__':
-    app.run(host='0.0.0.0')
+    runner.run()
 
