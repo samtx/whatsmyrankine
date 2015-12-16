@@ -2,6 +2,7 @@ from flask import Flask
 from flask.ext.runner import Runner
 
 app = Flask(__name__)
+app.config.from_object(os.environ['APP_SETTINGS'])
 runner = Runner(app)
 
 @app.route('/')
