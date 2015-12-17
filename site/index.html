@@ -80,113 +80,76 @@
         </div>
         <!-- /.row -->
 
-
-
-        <form id="cycle-params">
-          <!-- Working Fluid -->
-          <fieldset disabled>
-              <div class="form-group row">
-                <label for="workingFluid" class="col-sm-2 form-control-label">Working Fluid</label>
-                <div class="col-sm-10">
-                     <select class="c-select form-control" id="workingFluid">
-                      <option selected value="1">Water</option>
-                      <option value="2">Ammonia</option>
-                      <option value="3">Propane</option>
-                    </select>
-                </div>
-              </div>
-          </fieldset>
-          <!-- High Pressure -->
-          <div class="form-group row">
-            <label for="highPressure" class="col-sm-2 form-control-label">High Pressure</label>
-            <div class="col-sm-10">
-              <input type="number" step="any" min="0" class="form-control" id="highPressure">
+        <!-- Input cycle params -->
+        <div class="row">
+            <!-- Rankine Cycle Diagram -->
+            <div class="col-md-6">
+                <img src="img/rankine_cycle-min.jpg" class="img-responsive">
             </div>
-          </div>
-
-          <!-- Low Pressure -->
-          <div class="form-group row">
-            <label for="lowPressure" class="col-sm-2 form-control-label">Low Pressure</label>
-            <div class="col-sm-10">
-              <input type="number" step="any" min="0" class="form-control" id="lowPressure">
+            <!-- Parameter Input Form -->
+            <div class="col-md-6">
+                <form id="cycle-params">
+                  <!-- Working Fluid -->
+                  <fieldset disabled>
+                      <div class="form-group row">
+                        <label for="workingFluid" class="col-sm-2 form-control-label">Working Fluid</label>
+                        <div class="col-sm-10">
+                             <select class="c-select form-control" id="workingFluid">
+                              <option selected value="1">Water</option>
+                              <option value="2">Ammonia</option>
+                              <option value="3">Propane</option>
+                            </select>
+                        </div>
+                      </div>
+                  </fieldset>
+                  <!-- High Pressure -->
+                  <div class="form-group row">
+                    <label for="highPressure" class="col-sm-2 form-control-label">High Pressure</label>
+                    <div class="col-sm-10">
+                      <input type="number" step="any" min="0" class="form-control" id="highPressure">
+                    </div>
+                  </div>
+                  <!-- Low Pressure -->
+                  <div class="form-group row">
+                    <label for="lowPressure" class="col-sm-2 form-control-label">Low Pressure</label>
+                    <div class="col-sm-10">
+                      <input type="number" step="any" min="0" class="form-control" id="lowPressure">
+                    </div>
+                  </div>
+                  <!-- Max Temperature -->
+                  <div class="form-group row">
+                    <label for="maxTemperature" class="col-sm-2 form-control-label">Max Temperature</label>
+                    <div class="col-sm-10">
+                      <input type="number" step="any" class="form-control" id="maxTemperature">
+                    </div>
+                  </div>
+                  <!-- Turbine Efficiency -->
+                  <div class="form-group row">
+                    <label for="turbineEfficiency" class="col-sm-2 form-control-label">Turbine Efficiency</label>
+                    <div class="col-sm-10">
+                      <input type="number" step="any" min="0" max="100" class="form-control" id="turbineEfficiency">
+                    </div>
+                  </div>
+                  <!-- Pump Efficiency -->
+                  <div class="form-group row">
+                    <label for="pumpEfficiency" class="col-sm-2 form-control-label">Pump Efficiency</label>
+                    <div class="col-sm-10">
+                      <input type="number" step="any" min="0" max="100" class="form-control" id="pumpEfficiency">
+                    </div>
+                  </div>
+                  <!-- Mass Flow Rate -->
+                  <div class="form-group row">
+                    <label for="massFlowRate" class="col-sm-2 form-control-label">Mass Flow Rate</label>
+                    <div class="col-sm-10">
+                      <input type="number" step="any" min="0" class="form-control" id="massFlowRate">
+                    </div>
+                  </div>
+                </form>
             </div>
-          </div>
+        </div>
 
-          <!-- Max Temperature -->
-          <div class="form-group row">
-            <label for="maxTemperature" class="col-sm-2 form-control-label">Max Temperature</label>
-            <div class="col-sm-10">
-              <input type="number" step="any" class="form-control" id="maxTemperature">
-            </div>
-          </div>
 
-          <!-- Turbine Efficiency -->
-          <div class="form-group row">
-            <label for="turbineEfficiency" class="col-sm-2 form-control-label">Turbine Efficiency</label>
-            <div class="col-sm-10">
-              <input type="number" step="any" min="0" max="100" class="form-control" id="turbineEfficiency">
-            </div>
-          </div>
 
-          <!-- Pump Efficiency -->
-          <div class="form-group row">
-            <label for="pumpEfficiency" class="col-sm-2 form-control-label">Pump Efficiency</label>
-            <div class="col-sm-10">
-              <input type="number" step="any" min="0" max="100" class="form-control" id="pumpEfficiency">
-            </div>
-          </div>
-
-          <!-- Mass Flow Rate -->
-          <div class="form-group row">
-            <label for="massFlowRate" class="col-sm-2 form-control-label">Mass Flow Rate</label>
-            <div class="col-sm-10">
-              <input type="number" step="any" min="0" class="form-control" id="massFlowRate">
-            </div>
-          </div>
-
-          <!-- other forms from template online
-
-          <div class="form-group row">
-            <label class="col-sm-2">Radios</label>
-            <div class="col-sm-10">
-              <div class="radio">
-                <label>
-                  <input type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                  Option one is this and that&mdash;be sure to include why it's great
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                  Option two can be something else and selecting it will deselect option one
-                </label>
-              </div>
-              <div class="radio disabled">
-                <label>
-                  <input type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-                  Option three is disabled
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-sm-2">Checkbox</label>
-            <div class="col-sm-10">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Check me out
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-secondary">Sign in</button>
-            </div>
-          </div>
-        -->
-
-        </form>
 
     </div>
     <!-- /.container -->
