@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>What's My Rankine?</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">What's My Rankine?</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>A Bootstrap Starter Template</h1>
+                <p class="lead">Complete with pre-defined file paths that you won't have to change!</p>
+                <ul class="list-unstyled">
+                    <li>Bootstrap v3.3.6</li>
+                    <li>jQuery v1.11.1</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+
+        <form id="cycle-params">
+          <!-- Working Fluid -->
+          <fieldset disabled>
+              <div class="form-group row">
+                <label for="workingFluid" class="col-sm-2 form-control-label">Working Fluid</label>
+                <div class="col-sm-10">
+                     <select class="c-select form-control" id="workingFluid">
+                      <option selected value="1">Water</option>
+                      <option value="2">Ammonia</option>
+                      <option value="3">Propane</option>
+                    </select>
+                </div>
+              </div>
+          </fieldset>
+          <!-- High Pressure -->
+          <div class="form-group row">
+            <label for="highPressure" class="col-sm-2 form-control-label">High Pressure</label>
+            <div class="col-sm-10">
+              <input type="number" step="any" min="0" class="form-control" id="highPressure">
+            </div>
+          </div>
+
+          <!-- Low Pressure -->
+          <div class="form-group row">
+            <label for="lowPressure" class="col-sm-2 form-control-label">Low Pressure</label>
+            <div class="col-sm-10">
+              <input type="number" step="any" min="0" class="form-control" id="lowPressure">
+            </div>
+          </div>
+
+          <!-- Max Temperature -->
+          <div class="form-group row">
+            <label for="maxTemperature" class="col-sm-2 form-control-label">Max Temperature</label>
+            <div class="col-sm-10">
+              <input type="number" step="any" class="form-control" id="maxTemperature">
+            </div>
+          </div>
+
+          <!-- Turbine Efficiency -->
+          <div class="form-group row">
+            <label for="turbineEfficiency" class="col-sm-2 form-control-label">Turbine Efficiency</label>
+            <div class="col-sm-10">
+              <input type="number" step="any" min="0" max="100" class="form-control" id="turbineEfficiency">
+            </div>
+          </div>
+
+          <!-- Pump Efficiency -->
+          <div class="form-group row">
+            <label for="pumpEfficiency" class="col-sm-2 form-control-label">Pump Efficiency</label>
+            <div class="col-sm-10">
+              <input type="number" step="any" min="0" max="100" class="form-control" id="pumpEfficiency">
+            </div>
+          </div>
+
+          <!-- Mass Flow Rate -->
+          <div class="form-group row">
+            <label for="massFlowRate" class="col-sm-2 form-control-label">Mass Flow Rate</label>
+            <div class="col-sm-10">
+              <input type="number" step="any" min="0" class="form-control" id="massFlowRate">
+            </div>
+          </div>
+
+          <!-- other forms from template online
+
+          <div class="form-group row">
+            <label class="col-sm-2">Radios</label>
+            <div class="col-sm-10">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                  Option one is this and that&mdash;be sure to include why it's great
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                  Option two can be something else and selecting it will deselect option one
+                </label>
+              </div>
+              <div class="radio disabled">
+                <label>
+                  <input type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                  Option three is disabled
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2">Checkbox</label>
+            <div class="col-sm-10">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Check me out
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-secondary">Sign in</button>
+            </div>
+          </div>
+        -->
+
+        </form>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
