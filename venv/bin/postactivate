@@ -1,0 +1,2 @@
+cd ~/whatsmyrankine
+export APP_SETTINGS="config.DevelopmentConfig"
