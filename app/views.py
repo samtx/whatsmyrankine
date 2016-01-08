@@ -11,6 +11,7 @@ def cycle_to_json(cycle):
     for st in cycle.get_states():
         data['states'].update(
             {st.name : {
+                'name' = st.name,
                 'p' = st.p/1000,
                 'T' = st.T-273,
                 'h' = st.h/1000 * mdot,

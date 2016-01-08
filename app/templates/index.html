@@ -25,17 +25,31 @@
     <!-- Custom jQuery and Ajax -->
     <script>
         $(function() {
-            $('button').click(function() {
-                var user = $('#txtUsername').val();
-                var pass = $('#txtPassword').val();
+            $('#runCycle').click(function() {
                 $.ajax({
                     url: '/',
                     data: $('#cycle-params').serialize(),
                     dataType: 'json',
                     type: 'POST',
-                    success: function(response) {
-                        console.log(response);
+                    success: function(data) {
+                        data = JSON.parse(data); // do I need this?
+                        $('#stateTable').show();
+                        for (i in data.states) {
+                            $('#stateTable.tbody').append(
+                                '<tr>' +
+                                    '<td>' + i.name + '</td>' +
+                                    '<td>' + i.T + '</td>' +
+                                    '<td>' + i.p + '</td>' +
+                                    '<td>' + i.v + '</td>' +
+                                    '<td>' + i.h + '</td>' +
+                                    '<td>' + i.s + '</td>' +
+                                    '<td>' + i.ef + '</td>' +
+                                    '<td>' + i.x + '</td>' +
+                                '</tr>'
+                            );
+                        };
                     },
+
                     error: function(error) {
                         console.log(error);
                     }
@@ -178,7 +192,7 @@
                       <div class="col-sm-6">
                       </div>
                       <div class="col-sm-6">
-                          <button type="submit" class="btn btn-primary btn-lg btn-block pull-right">Run Cycle</button>
+                          <button type="submit" id="runCycle" class="btn btn-primary btn-lg btn-block pull-right">Run Cycle</button>
                       </div>
                   </div>
                 </form>
@@ -186,15 +200,15 @@
         </div>
 
         <div id="results" class="show">
-            <div id="stateTable" class="table-responsive">
-                <table class="table table-bordered">
+            <div class="table-responsive">
+                <table id="stateTable" class="table table-bordered">
                     <caption>State Table</caption>
                     <thead>
                         <tr>
                         <th>State</th>
                         <th class="col-sm-2">Temperature</th>
                         <th class="col-sm-2">Pressure</th>
-                        <th class="col-sm-2">Volume</th>
+                        <!-- <th class="col-sm-2">Volume</th> -->
                         <th class="col-sm-2">Enthalpy</th>
                         <th class="col-sm-2">Entropy</th>
                         <th class="col-sm-2">Flow Exergy</th>
@@ -217,12 +231,12 @@
                     </tbody>
                 </table>
             </div>
-            <div id="processTable">
-                <table class="table table-responsive table-bordered">
+            <div>
+                <table id="processTable" class="table table-responsive table-bordered">
                 </table>
             </div>
-            <div id="cycleResults">
-                <table class="table table-responsive table-bordered">
+            <div>
+                <table id="cycleResults" class="table table-responsive table-bordered">
                 </table>
             </div>
         </div>
