@@ -32,15 +32,17 @@ def calc_rankine():
         valid_form = True
         if valid_form:
             props = []
-            props['fluid'] = request.form['workingFluid']
-            props['p_hi'] = request.form['highPressure']
-            props['p_lo'] = request.form['lowPressure']
-            props['t_hi'] = request.form['maxTemperature']
-            props['turb_eff'] = request.form['turbineEfficiency']
-            props['pump_eff'] = request.form['pumpEfficiency']
-            props['mdot'] = request.form['massFlowRate']
+            props['fluid'] = request.data['workingFluid']
+            props['p_hi'] = request.data['highPressure']
+            props['p_lo'] = request.data['lowPressure']
+            props['t_hi'] = request.data['maxTemperature']
+            props['turb_eff'] = request.data['turbineEfficiency']
+            props['pump_eff'] = request.data['pumpEfficiency']
+            props['mdot'] = request.data['massFlowRate']
             props['superheat'] = True
             cycle = compute_cycle(props)
+            data = cycle_to_json(cycle)
+            return jsonify(data)
 
 
 @app.route('/<name>')
