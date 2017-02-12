@@ -23,6 +23,31 @@
     }
     </style>
 
+<!-- jQuery Version 1.11.1 -->
+<!-- <script src="./static/js/jquery.js"></script> -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>-->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Latest compiled and minified CSS -->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+<!-- Optional theme -->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- Coolprop Thermodynamic Properties -->
+<script src="http://www.coolprop.sourceforge.net/jscript/coolprop.js"></script>
+<!--<script src="http://www.coolprop.sourceforge.net/jscript/coolprop.js"></script>-->
+<!--<script src="./static/js/coolprop.js"></script>-->
+<!--<script src="./static/js/coolprop.js.mem"></script>-->
+
+<!--<script src="./static/js/bootstrap.min.js"></script>-->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -172,26 +197,6 @@
 
 </body>
 
-<!-- jQuery Version 1.11.1 -->
-<!-- <script src="./static/js/jquery.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
-
-<!-- Bootstrap Core JavaScript -->
-<!-- Latest compiled and minified CSS -->
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
-
-<!-- Optional theme -->
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<!-- Coolprop Thermodynamic Properties -->
-<script src="./static/js/coolprop.js"></script>
-<script src="./static/js/coolprop.js.mem"></script>
-
-<!--<script src="./static/js/bootstrap.min.js"></script>-->
 
 <script type="text/javascript">
     $(document).ready(function() {  
@@ -204,6 +209,16 @@
             // document.getElementById("result").value = result; 
         });
         
+        function text2key(text)
+            {
+                if (text == 'Pressure [Pa]')
+                    return 'P';
+                else if (text == 'Temperature [K]')
+                    return 'T';
+                else if (text == 'Density [kg/m&#179;]')
+                    return 'D';
+            }
+            
         $("#thermo-form").submit(function(event) {
             event.preventDefault();
             var name = $('#FluidName :selected').text();
