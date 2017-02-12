@@ -69,27 +69,89 @@
 
     <!-- Page Content -->
     <div class="container">
+    
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>A Bootstrap Starter Template</h1>
+                <p class="lead">Complete with pre-defined file paths that you won't have to change!</p>
+                <ul class="list-unstyled">
+                    <li>Bootstrap v3.3.6</li>
+                    <li>jQuery v1.11.1</li>
+                </ul>
+            </div>
+        </div>
+            
+            <!-- Parameter Input Form -->
+            <!--    <p>Using input and button tags</p>-->
+            <!--    <p>num1a</p>-->
+            <!--    <input type="number" min=0 class="form-control" id="num1a">-->
+            <!--    <p>num2a</p>-->
+            <!--    <input type="number" min=0 class="form-control" id="num2a">-->
+            <!--    <p>Result:<span id="resulta"></span> </p>-->
+            <!--    <button id='add-these' class="btn btn-primary btn-lg btn-block pull-right">add these</button>-->
+    
+        <div>
+            Using HTML forms
+            <form id="math-form">
+                <div class="form-group row">
+                    <label for="num1" class="col-2 col-form-label">num1</label>
+                    <div class="col-10">
+                        <input type="number" step="any" min="0" class="form-control" id="num1">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="num2" class="col-2 col-form-label">num2</label>
+                    <div class="col-10">
+                        <input type="number" step="any" min="0" class="form-control" id="num2">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="result" class="col-2 col-form-label">result</label>
+                    <div class="col-10">
+                        <span id="result"></span>
+                        <!--<input type="number" step="any" class="form-control" id="result">-->
+                    </div>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Calculate"/>
+            </form>
         
-        <!-- Parameter Input Form -->
-            <p>Using input and button tags</p>
-            <p>num1a</p>
-            <input type="number" min=0 class="form-control" id="num1a">
-            <p>num2a</p>
-            <input type="number" min=0 class="form-control" id="num2a">
-            <p>Result:<span id="resulta"></span> </p>
-            <button id='add-these' class="btn btn-primary btn-lg btn-block pull-right">add these</button>
-
-        <!--<div class="row">-->
-        <!--    <div class="col-lg-12 text-center">-->
-        <!--        <h1>A Bootstrap Starter Template</h1>-->
-        <!--        <p class="lead">Complete with pre-defined file paths that you won't have to change!</p>-->
-        <!--        <ul class="list-unstyled">-->
-        <!--            <li>Bootstrap v3.3.6</li>-->
-        <!--            <li>jQuery v1.11.1</li>-->
-        <!--        </ul>-->
-        <!--    </div>-->
-        <!--</div>-->
-        <!-- /.row -->
+        <form id="thermo-form">    
+            <div class="form-group row">
+                <label for="FluidName">Fluid Name</label>
+                <select class="form-control" id="FluidName">
+                    <option>Water</option>
+                    <option>Nitrogen</option>
+                    <option>R134a</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Name1">Input #1:</label>
+                <select class="form-control" id="Name1">
+                    <option value="">Select one...</option>
+                    <option value="Pressure">Pressure [Pa]</option>
+                    <option value="Temperature">Temperature [K]</option>
+                    <option value="Density">Density [kg/m&#179;]</option>
+                </select>
+                <input class="form-control" type="number" id ='Value1'></input>
+            </div>
+            <div class="form-group">
+                <label for"Name2">Input #2: </label>
+                <select class="form-control" id="Name2">
+                    <option value="">Select one...</option>
+                    <option value="Pressure">Pressure [Pa]</option>
+                    <option value="Temperature">Temperature [K]</option>
+                    <option value="Density">Density [kg/m&#179;]</option>
+                </select>
+                <input type="number" class="form-control" id ='Value2'></input>
+            </div>
+            <input type="submit" class="btn btn-primary" id="calc" value="Calculate"/>
+            <div> 
+                <p>Output:</p>
+                <p id="output"></p>
+            </div>
+        </form>
+    
+    </div>
 
         <!-- Input cycle params -->
         <!--<div class="row">-->
@@ -101,39 +163,100 @@
             
 
 
-        <!--    <div>-->
-        <!--        Using HTML forms-->
-        <!--        <form id="math-form">-->
-                      <!--num1 -->
-        <!--             <div class="form-group">-->
-        <!--                <label for="num1" class="col-sm-6 control-label">num1</label>-->
-        <!--                <div class="col-sm-6">-->
-        <!--                     <input type="number" step="any" min="0" class="form-control" id="num1">-->
-        <!--                </div>-->
-        <!--             </div>-->
-                     <!--num2-->
-        <!--             <div class="form-group">-->
-        <!--                <label for="num2" class="col-sm-6 control-label">num2</label>-->
-        <!--                <div class="col-sm-6">-->
-        <!--                    <input type="number" step="any" min="0" class="form-control" id="num2">-->
-        <!--                </div>-->
-        <!--            </div>-->
-                    <!--result -->
-        <!--            <div class="form-group">-->
-        <!--                <label for="result" class="col-sm-6 control-label">result</label>-->
-        <!--                <div class="col-sm-6">-->
-        <!--                    <input type="number" step="any" class="form-control" id="result">-->
-        <!--                </div>-->
-        <!--            </div>-->
-                    <!--  calculate -->
-        <!--            <input type="submit" value="Calculate"/>-->
-        <!--        </form>-->
-        <!--    </div>-->
-
-        <!--</div>-->
+        
     </div>
 
+         
+
+    <!-- /.container -->
+
+</body>
+
+<!-- jQuery Version 1.11.1 -->
+<!-- <script src="./static/js/jquery.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Latest compiled and minified CSS -->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+<!-- Optional theme -->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- Coolprop Thermodynamic Properties -->
+<script src="./static/js/coolprop.js"></script>
+<script src="./static/js/coolprop.js.mem"></script>
+
+<!--<script src="./static/js/bootstrap.min.js"></script>-->
+
+<script type="text/javascript">
+    $(document).ready(function() {  
+        $("#math-form").submit(function(event) {
+            event.preventDefault();
+            var num1 = parseInt(document.getElementById("num1").value);
+            var num2 = parseInt(document.getElementById("num2").value);
+            var result = num1 + num2;
+            $("#result").html(result);
+            // document.getElementById("result").value = result; 
+        });
+        
+        $("#thermo-form").submit(function(event) {
+            event.preventDefault();
+            var name = $('#FluidName :selected').text();
+            var key1 = text2key($('#Name1 :selected').text());
+            var key2 = text2key($('#Name2 :selected').text());
+            var val1 = parseFloat($('#Value1').val());
+            var val2 = parseFloat($('#Value2').val());
             
+            var T = Module.PropsSI('T', key1, val1, key2, val2, name);
+            var rho = Module.PropsSI('D', key1, val1, key2, val2, name);
+            var p = Module.PropsSI('P', key1, val1, key2, val2, name);
+            var s = Module.PropsSI('S', key1, val1, key2, val2, name);
+            var h = Module.PropsSI('H', key1, val1, key2, val2, name);
+            var cp = Module.PropsSI('C', key1, val1, key2, val2, name);
+            
+            text = '';
+            text += 'T = ' + T + ' K\n' + '<br>';
+            text += 'rho = ' + rho + ' kg/m&#179; <br>';
+            text += 'p = ' + p + ' Pa<br>';
+            text += 's = ' + s + ' J/kg/K<br>';
+            text += 'h = ' + h + ' J/kg<br>';
+            text += 'cp = ' + cp + ' J/kg/K<br>';
+            
+            $( "#output" ).html( text);
+        });
+        
+        $("#add-these").on("click", function() {
+           var num1 = parseInt(document.getElementById("num1a").value);
+           var num2 = parseInt(document.getElementById("num2a").value);
+           var res = num1 + num2;
+           $("#resulta").html(res);
+            
+        });
+    });
+        // var runRankine = document.getElementById("run-rankine");
+        // // if (runRankine) {
+        // //     runRankine.onsubmit = function () {
+        // //         this.maxTemperature.value = this.highPressure.value + this.lowPressure.value; 
+        // //         return false;
+        // //     };
+        // // }
+        // function runRankine() {
+        //         var num1 = document.getElementById("highPressure").value;
+        //         var num2 = document.getElementById("lowPressure").value;
+        //         document.getElementById("maxTemperature").value = num1 + num2; 
+        //     };
+        
+</script>
+
+</html>
+
+
+   
             <!--<div class="col-md-6">-->
             <!--    <div id="cycle-params" class="form-horizontal">-->
                   <!-- Working Fluid -->
@@ -244,61 +367,3 @@
         <!--    </div>-->
         <!--</div>-->
 
-
-
-    <!-- /.container -->
-
-</body>
-
-<!-- jQuery Version 1.11.1 -->
-<!-- <script src="./static/js/jquery.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
-
-<!-- Bootstrap Core JavaScript -->
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<!--<script src="./static/js/bootstrap.min.js"></script>-->
-
-<script type="text/javascript">
-    $(document).ready(function() {  
-        $("#math-form").submit( function(event) {
-            event.preventDefault();
-            var num1 = document.getElementById("num1").value;
-            var num2 = document.getElementById("num2").value;
-            var result = num1 + num2;
-            document.getElementById("result").value = result; 
-        }
-        );
-        
-        $("#add-these").on("click", function() {
-           var num1 = parseInt(document.getElementById("num1a").value);
-           var num2 = parseInt(document.getElementById("num2a").value);
-           var res = num1 + num2;
-           $("#resulta").html(res);
-            
-        });
-        
-        // var runRankine = document.getElementById("run-rankine");
-        // // if (runRankine) {
-        // //     runRankine.onsubmit = function () {
-        // //         this.maxTemperature.value = this.highPressure.value + this.lowPressure.value; 
-        // //         return false;
-        // //     };
-        // // }
-        // function runRankine() {
-        //         var num1 = document.getElementById("highPressure").value;
-        //         var num2 = document.getElementById("lowPressure").value;
-        //         document.getElementById("maxTemperature").value = num1 + num2; 
-        //     };
-        });
-</script>
-
-</html>
