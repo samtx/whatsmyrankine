@@ -141,38 +141,62 @@
             </form>
         
         <form id="thermo-form">    
-            <div class="form-group row">
-                <label for="FluidName">Fluid Name</label>
-                <select class="form-control" id="FluidName">
+            <div class="form-group row form-inline">
+                <label for="FluidName" class="col-2 col-form-label">Fluid Name</label>
+                <select class="form-control col-10" id="FluidName">
                     <option>Water</option>
                     <option>Nitrogen</option>
                     <option>R134a</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="Name1">Input #1:</label>
-                <select class="form-control" id="Name1">
+            <div class="form-group row form-inline">
+                <label for="Name1" class="col-2 col-form-label">Input #1:</label>
+                <select class="form-control col-8" id="Name1">
                     <option value="">Select one...</option>
                     <option value="Pressure">Pressure [Pa]</option>
                     <option value="Temperature">Temperature [K]</option>
                     <option value="Density">Density [kg/m&#179;]</option>
                 </select>
-                <input class="form-control" type="number" id ='Value1'></input>
+                <input class="form-control col-2" type="number" id ='Value1'></input>
             </div>
-            <div class="form-group">
-                <label for"Name2">Input #2: </label>
-                <select class="form-control" id="Name2">
+            <div class="form-group row form-inline">
+                <label for="Name2" class="col-2 col-form-label">Input #2: </label>
+                <select class="form-control col-8" id="Name2">
                     <option value="">Select one...</option>
                     <option value="Pressure">Pressure [Pa]</option>
                     <option value="Temperature">Temperature [K]</option>
                     <option value="Density">Density [kg/m&#179;]</option>
                 </select>
-                <input type="number" class="form-control" id ='Value2'></input>
+                <input type="number" class="form-control col-2" id ='Value2'></input>
             </div>
             <input type="submit" class="btn btn-primary" id="calc" value="Calculate"/>
             <div> 
-                <p>Output:</p>
-                <p id="output"></p>
+                <label class="col-2 col-form-label" for="output">Thermal Efficiency:</label> 
+                <div class="col-8">
+                    <p id="output" class="form-control-static"></p>
+                </div>
+            </div>
+        </form>
+    
+        <form id="rankine-form">    
+            <div class="form-group row form-inline">
+                <label for="FluidName" class="col-4 col-form-label">Working Fluid:</label>
+                <p class='col-8 form-control-static'>Water</p>
+            </div>
+            <div class="form-group row form-inline">
+                <label for="highPressure" class="col-4 col-form-label">High Pressure [MPa]:</label>
+                <input type='number' class="form-control col-6" id="highPressure"></input>
+            </div>
+            <div class="form-group row form-inline">
+                <label for="lowPressure" class="col-4 col-form-label">Low Pressure [MPa]:</label>
+                <input type='number' class="form-control col-6" id="lowPressure"></input>
+            </div>
+            <input type="submit" class="btn btn-primary col-2" id="calc-rankine" value="Calculate"/>
+            <div> 
+                <label class="col-2 col-form-label" for="output">Thermal Efficiency:</label> 
+                <div class="col-8">
+                    <p id="thermalEfficiency" class="form-control-static"></p>
+                </div>
             </div>
         </form>
     
@@ -219,6 +243,26 @@
                     return 'D';
             }
             
+        $("#rankine-form").submit(function(event) {
+            event.preventDefault();
+            var name = "Water";
+            var highP = parseFloat($('#highPressure').val())*1000000;
+            var lowP = parseFloat($('#lowPressure').val())*1000000;
+            
+            var h1 = Module.PropsSI('H', "P", highP, 'Q', 1.0, name);
+            var s1 = Module.PropsSI('S', "P", lowP, 'Q', 1.0, name);
+            var h2 = Module.PropsSI('H', "S", s1, 'P', lowP, name);
+            var h3 = Module.PropsSI('H', "P", lowP, 'Q', 0.0, name);
+            var rho3 = Module.PropsSI("D", "P", lowP, "Q", 0.0, name);
+            var h4 = Module.PropsSI('H', "D", rho3, 'Q', 0.0, name);
+
+            eff = (h1 - h2) / (h1 - h4) * 100;
+            text = eff + ' &#37;';
+            
+            $( "#thermalEfficiency" ).html( text);
+        });
+        
+        
         $("#thermo-form").submit(function(event) {
             event.preventDefault();
             var name = $('#FluidName :selected').text();
