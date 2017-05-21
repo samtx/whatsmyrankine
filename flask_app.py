@@ -9,6 +9,6 @@ from app import app
 #print(os.environ['APP_SETTINGS'])
 
 if __name__=='__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=8080)
     #runner.run()
 
