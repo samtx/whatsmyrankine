@@ -28,11 +28,10 @@
             <div class="col-md-6">
                 <form id="cycle-params" class="form-horizontal">
                   <!-- Working Fluid -->
-                  <fieldset disabled>
                       <div class="form-group">
                         <label for="workingFluid" class="col-sm-6 control-label">Working Fluid</label>
                         <div class="col-sm-6">
-                             <select class="c-select form-control" id="workingFluid">
+                             <select disabled class="c-select form-control" id="workingFluid">
                               <option selected value="Water">Water</option>
                               <option value="Ammonia">Ammonia</option>
                               <option value="Propane">Propane</option>
@@ -58,29 +57,40 @@
                   <div class="form-group">
                     <label for="maxTemperature" class="col-sm-6 control-label">Max Temperature</label>
                     <div class="col-sm-6">
-                      <input type="number" step="any" class="form-control" id="maxTemperature">
+                      <input disabled type="number" step="any" class="form-control" id="maxTemperature">
                     </div>
                   </div>
                   <!-- Turbine Efficiency -->
                   <div class="form-group">
                     <label for="turbineEfficiency" class="col-sm-6 control-label">Turbine Efficiency</label>
                     <div class="col-sm-6">
-                      <input type="number" step="any" min="0" max="100" class="form-control" id="turbineEfficiency">
+                      <input disabled type="number" step="any" min="0" max="100" class="form-control" id="turbineEfficiency">
                     </div>
                   </div>
                   <!-- Pump Efficiency -->
                   <div class="form-group">
                     <label for="pumpEfficiency" class="col-sm-6 control-label">Pump Efficiency</label>
                     <div class="col-sm-6">
-                      <input type="number" step="any" min="0" max="100" class="form-control" id="pumpEfficiency">
+                      <input disabled type="number" step="any" min="0" max="100" class="form-control" id="pumpEfficiency">
                     </div>
                   </div>
                   <!-- Mass Flow Rate -->
                   <div class="form-group">
                     <label for="massFlowRate" class="col-sm-6 control-label">Mass Flow Rate</label>
                     <div class="col-sm-6">
-                      <input type="number" step="any" min="0" class="form-control" id="massFlowRate">
+                      <input disabled type="number" step="any" min="0" class="form-control" id="massFlowRate">
                     </div>
+                  </div>
+                  <!-- Units -->
+                 <!--<fieldset disabled>-->
+                 <div class="form-group">
+                        <label for="units" class="col-sm-6 control-label">Units</label>
+                        <div class="col-sm-6">
+                             <select disabled class="c-select form-control" id="units">
+                              <option selected value="si">SI</option>
+                              <option value="english">English</option>
+                            </select>
+                        </div>
                   </div>
                   <!-- Run cycle button -->
                   <div class="row">
@@ -164,7 +174,7 @@
                         for (var j=0, k=data_vars.length; j<k; j++) {
                             property = data_vars[j];
                             console.log(property);
-                            row += '<td>' +  state[property] + '</td>';
+                            row += '<td>' +  parseFloat(state[property]).toFixed(2) + '</td>';
                         }
                         console.log(row);
                         rows += row + '</tr>';
