@@ -18,6 +18,7 @@ def runcycle():
     props["p_hi"] = request.args.get('highPressure', 0.0, type=float)
     props["p_lo"] = request.args.get('lowPressure', 0.0, type=float)
     cycle = compute_cycle(props)
-    return jsonify(therm_eff=cycle.en_eff)
+    # convert relevant data in cycle object to dict
+    return jsonify(cycle=cycle.serialize())
 
 

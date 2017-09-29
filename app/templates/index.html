@@ -44,14 +44,14 @@
                   <div class="form-group">
                     <label for="highPressure" class="col-sm-6 control-label">High Pressure</label>
                     <div class="col-sm-6">
-                      <input type="number" step="any" min="0" class="form-control" id="highPressure">
+                      <input type="number" step="any" min="0" value=10 class="form-control" id="highPressure">
                     </div>
                   </div>
                   <!-- Low Pressure -->
                   <div class="form-group">
                     <label for="lowPressure" class="col-sm-6 control-label">Low Pressure</label>
                     <div class="col-sm-6">
-                      <input type="number" step="any" min="0" class="form-control" id="lowPressure">
+                      <input type="number" step="any" min="0" value=2 class="form-control" id="lowPressure">
                     </div>
                   </div>
                   <!-- Max Temperature -->
@@ -97,8 +97,8 @@
         <!-- Results Table -->
         <span id="result">?</span>
         <div id="results" class="show">
-            <div id="stateTable" class="table-responsive">
-                <table class="table table-bordered">
+            <div class="table-responsive">
+                <table id="stateTable" class="table table-bordered">
                     <caption>State Table</caption>
                     <thead>
                         <tr>
@@ -115,15 +115,13 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                        </tr>
-                        <tr>
                             <td>2</td>
-                        </tr>
-                        <tr>
                             <td>3</td>
-                        </tr>
-                        <tr>
                             <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
                         </tr>
                     </tbody>
                 </table>
@@ -151,7 +149,28 @@
                     highPressure: $('#highPressure').val(),
                     lowPressure: $('#lowPressure').val()
                 }, function(data) {
-                    $("#result").text(data.therm_eff * 100);
+                    console.table(data);
+                    $("#result").text(data.cycle.en_eff * 100);
+                    // update state table with data
+                    // var $table = $('#stateTableBody');
+                    // $table.empty();
+                    var rows = '';
+                    states = data.cycle.states;
+                    for (var i=0, l=states.length; i<l; i++) {
+                        state = states[i];
+                        var row = '<tr>';
+                        console.log(state);
+                        data_vars = ['name','T','p','v','h','s','ef','x'];
+                        for (var j=0, k=data_vars.length; j<k; j++) {
+                            property = data_vars[j];
+                            console.log(property);
+                            row += '<td>' +  state[property] + '</td>';
+                        }
+                        console.log(row);
+                        rows += row + '</tr>';
+                    }
+                    console.log(rows);
+                    $('#stateTable > tbody').html(rows);
                 });
                 return false;
             });

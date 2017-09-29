@@ -32,11 +32,27 @@ class State(object):
         self.ef = self.h-self.cycle.dead.h - self.cycle.dead.T*(self.s-self.cycle.dead.s)
         return
 
-    def __str__():
+    def __str__(self):
         return self._name
 
     def __repr__(self):
         return self.name
+        
+    def serialize(self):
+        data = {
+            'name': self.name,
+            'T': self.T,
+            'p': self.p,
+            'd': self.d,
+            'v': self.v,
+            'u': self.u,
+            'h': self.h,
+            's': self.s,
+            'ef': self.ef,
+            'x': self.x
+        }
+        return data
+        
 
     def __init__(self,cycle,name="",fluid=None):
 
@@ -120,6 +136,15 @@ class Cycle(object):
 
     def __repr__(self):
         return self.name
+        
+    def serialize(self):
+        data = {}
+        data['en_eff'] = self.en_eff
+        state_list = self.get_states()
+        data['states'] = []
+        for state in state_list:
+            data['states'].append(state.serialize())
+        return data
 
     def add_proc(self,process):
         self.proc_list.append(process)
