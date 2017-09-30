@@ -88,10 +88,20 @@ class Process(object):
     state in and a state out. '''
 
     def exergy_destroyed(self):
-        return self.cycle.dead.T*(self.state_out.s-self.state_in.s) # exergy destroyed
+        return self.cycle.dead.T*(self.out.s-self.in_.s) # exergy destroyed
 
     def __repr__(self):
         return self.name
+        
+    def serialize(self):
+        data = {
+            'name': self.name,
+            'state_in': self.in_.name,
+            'state_out': self.out.name,
+            'heat': self.heat,
+            'work': self.work
+        }
+        return data
 
     def __init__(self,cycle,state_in,state_out,heat=0,work=0,name="",intrev=False):
         self.cycle = cycle # this should be an object of class Cycle
@@ -144,6 +154,11 @@ class Cycle(object):
         data['states'] = []
         for state in state_list:
             data['states'].append(state.serialize())
+        process_list = self.get_procs()
+        data['processes'] = []
+        for process in process_list:
+            data['processes'].append(process.serialize())
+        print(data['processes'])
         return data
 
     def add_proc(self,process):

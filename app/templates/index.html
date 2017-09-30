@@ -6,31 +6,39 @@
     <div class="container">
 
         <!-- Website Title -->
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>A Bootstrap Starter Template</h1>
-                <p class="lead">Complete with pre-defined file paths that you won't have to change!</p>
-                <ul class="list-unstyled">
-                    <li>Bootstrap v3.3.6</li>
-                    <li>jQuery v1.11.1</li>
-                </ul>
+        <div class="form-group row">
+            <label for="rankineCycleType" class="control-label col-sm-4 text-right" style="vertical-align: middle">Rankine cycle type:</label>
+            <div class="btn-group col-sm-8" data-toggle="buttons">
+                <label class="btn btn-info" style="margin:0 5px 0 5px">
+                    <input type="radio" name="rankineCycleType" id="Standard" class='btn btn-large active col-sm-2' checked/>Standard
+                </label>
+                <label class="btn btn-info" style="margin:0 5px 0 5px">
+                    <input type="radio" name="rankineCycleType" id="Superheated" class='btn btn-large active col-sm-2' checked/>Superheated
+                </label>
+                <label class="btn btn-info" style="margin:0 5px 0 5px">
+                    <input type="radio" name="rankineCycleType" id="Reheated" class='btn btn-large active col-sm-2' checked/>Reheated
+                </label>
+                <label class="btn btn-info" style="margin:0 5px 0 5px">
+                    <input type="radio" name="rankineCycleType" id="Regenerated" class='btn btn-large active col-sm-2' checked/>Regenerated
+                </label>
+                
+              <!--<a href="#prices2" class="btn btn-large active " data-toggle="tab">Standard</a>-->
+              <!--<a href="#features2" class="btn btn-large " data-toggle="tab">Superheated</a>-->
+              <!--<a href="#requests2" class="btn btn-large " data-toggle="tab">Re-heated</a>-->
+              <!--<a href="#contact2" class="btn btn-large "  data-toggle="tab">Regenerated</a>-->
             </div>
         </div>
         <!-- /.row -->
 
         <!-- Input cycle params -->
         <div class="row">
-            <!-- Rankine Cycle Diagram -->
-            <div class="col-md-6">
-                <img src="../static/img/rankine_cycle-min.jpg" class="img-responsive">
-            </div>
             <!-- Parameter Input Form -->
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <form id="cycle-params" class="form-horizontal">
                   <!-- Working Fluid -->
-                      <div class="form-group">
-                        <label for="workingFluid" class="col-sm-6 control-label">Working Fluid</label>
-                        <div class="col-sm-6">
+                      <div class="form-group row">
+                        <label for="workingFluid" class="col-sm-4 control-label">Working Fluid</label>
+                        <div class="col-sm-4">
                              <select disabled class="c-select form-control" id="workingFluid">
                               <option selected value="Water">Water</option>
                               <option value="Ammonia">Ammonia</option>
@@ -38,106 +46,136 @@
                             </select>
                         </div>
                       </div>
-                  </fieldset>
+                  <!--</fieldset>-->
                   <!-- High Pressure -->
-                  <div class="form-group">
-                    <label for="highPressure" class="col-sm-6 control-label">High Pressure</label>
-                    <div class="col-sm-6">
-                      <input type="number" step="any" min="0" value=10 class="form-control" id="highPressure">
+                  <div class="form-group row">
+                    <label for="highPressure" class="col-sm-4 col-form-label control-label ">High Pressure</label>
+                    <div class="col-sm-4">
+                      <input type="number" step="any" min="0" value=10 class="form-control rankine-input" id="highPressure">
                     </div>
+                    <label for="pressureUnits" class="col-sm-1 control-label">MPa</label>
                   </div>
                   <!-- Low Pressure -->
                   <div class="form-group">
-                    <label for="lowPressure" class="col-sm-6 control-label">Low Pressure</label>
-                    <div class="col-sm-6">
-                      <input type="number" step="any" min="0" value=2 class="form-control" id="lowPressure">
+                    <label for="lowPressure" class="col-sm-4 control-label rankine-form-label">Low Pressure</label>
+                    <div class="col-sm-4">
+                      <input type="number" step="any" min="0" value=2 class="form-control rankine-input" id="lowPressure">
                     </div>
+                    <label for="pressureUnits" class="col-sm-1 control-label">MPa</label>
                   </div>
                   <!-- Max Temperature -->
                   <div class="form-group">
-                    <label for="maxTemperature" class="col-sm-6 control-label">Max Temperature</label>
-                    <div class="col-sm-6">
-                      <input disabled type="number" step="any" class="form-control" id="maxTemperature">
+                    <label for="maxTemperature" class="col-sm-4 control-label">Max Temperature</label>
+                    <div class="col-sm-4">
+                      <input disabled type="number" step="any" class="form-control rankine-input" id="maxTemperature">
                     </div>
+                    <label for="temperatureUnits" class="col-sm-1 control-label">&deg;C</label>
                   </div>
                   <!-- Turbine Efficiency -->
                   <div class="form-group">
-                    <label for="turbineEfficiency" class="col-sm-6 control-label">Turbine Efficiency</label>
-                    <div class="col-sm-6">
-                      <input disabled type="number" step="any" min="0" max="100" class="form-control" id="turbineEfficiency">
+                    <label for="turbineEfficiency" class="col-sm-4 control-label">Turbine Efficiency</label>
+                    <div class="col-sm-4">
+                      <input disabled type="number" step="any" min="0" max="100" class="form-control rankine-input" id="turbineEfficiency">
                     </div>
+                    <label for="efficiencyUnits" class="col-sm-1 control-label">%</label>
                   </div>
                   <!-- Pump Efficiency -->
                   <div class="form-group">
-                    <label for="pumpEfficiency" class="col-sm-6 control-label">Pump Efficiency</label>
-                    <div class="col-sm-6">
-                      <input disabled type="number" step="any" min="0" max="100" class="form-control" id="pumpEfficiency">
+                    <label for="pumpEfficiency" class="col-sm-4 control-label">Pump Efficiency</label>
+                    <div class="col-sm-4">
+                      <input disabled type="number" step="any" min="0" max="100" class="form-control rankine-input" id="pumpEfficiency">
                     </div>
+                    <label for="efficiencyUnits" class="col-sm-1 control-label">%</label>
                   </div>
                   <!-- Mass Flow Rate -->
                   <div class="form-group">
-                    <label for="massFlowRate" class="col-sm-6 control-label">Mass Flow Rate</label>
-                    <div class="col-sm-6">
-                      <input disabled type="number" step="any" min="0" class="form-control" id="massFlowRate">
+                    <label for="massFlowRate" class="col-sm-4 control-label">Mass Flow Rate</label>
+                    <div class="col-sm-4">
+                      <input disabled type="number" step="any" min="0" class="form-control rankine-input" id="massFlowRate">
                     </div>
+                    <label for="massFlowRateUnits" class="col-sm-1 control-label">kg/s</label>
                   </div>
                   <!-- Units -->
                  <!--<fieldset disabled>-->
                  <div class="form-group">
-                        <label for="units" class="col-sm-6 control-label">Units</label>
-                        <div class="col-sm-6">
-                             <select disabled class="c-select form-control" id="units">
-                              <option selected value="si">SI</option>
-                              <option value="english">English</option>
+                        <label for="units" class="col-sm-4 control-label">Units</label>
+                        <div class="col-sm-4">
+                             <select disabled class="c-select form-control rankine-input" id="units">
+                              <option selected value="SI">SI</option>
+                              <option value="English">English</option>
                             </select>
                         </div>
                   </div>
                   <!-- Run cycle button -->
                   <div class="row">
-                      <div class="col-sm-6">
+                      <div class="col-sm-4">
                       </div>
-                      <div class="col-sm-6">
-                          <button type="submit" id="runcycle" class="btn btn-primary btn-lg btn-block pull-right">Run Cycle</button>
+                      <div class="col-sm-4">
+                          <button type="submit" id="runcycle" class="btn btn-primary btn-md btn-block">Run Cycle</button>
                       </div>
                   </div>
                 </form>
             </div>
+            <!-- Rankine Cycle Diagram -->
+            <div class="col-md-7">
+                <img src="../static/img/rankine_cycle-min.jpg" style="max-height:400px" class="text-center img-responsive">
+            </div>
         </div>
 
         <!-- Results Table -->
-        <span id="result">?</span>
+        Thermal efficiency = <span id="result">?</span>
         <div id="results" class="show">
             <div class="table-responsive">
                 <table id="stateTable" class="table table-bordered">
-                    <caption>State Table</caption>
+                    <!--<caption>State Table</caption>-->
                     <thead>
                         <tr>
                         <th>State</th>
-                        <th class="col-sm-2">Temperature</th>
-                        <th class="col-sm-2">Pressure</th>
-                        <th class="col-sm-2">Volume</th>
-                        <th class="col-sm-2">Enthalpy</th>
-                        <th class="col-sm-2">Entropy</th>
-                        <th class="col-sm-2">Flow Exergy</th>
-                        <th class="col-sm-1">Quality</th>
+                        <th class="col-2">Temperature</th>
+                        <th class="col-2">Pressure</th>
+                        <th class="col-2">Volume</th>
+                        <th class="col-2">Enthalpy</th>
+                        <th class="col-2">Entropy</th>
+                        <th class="col-2">Flow Exergy</th>
+                        <th class="col-1">Quality</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>8</td>
-                        </tr>
+                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
                     </tbody>
                 </table>
             </div>
-            <div id="processTable">
-                <table class="table table-responsive table-bordered">
+            
+            <div class="table-responsive">
+                <table id="processTable" class="table table-responsive table-bordered">
+                    <!--<caption>State Table</caption>-->
+                    <thead>
+                        <tr>
+                        <th>Process</th>
+                        <th class="col-2">States</th>
+                        <th class="col-2">Heat In</th>
+                        <th class="col-2">Work Out</th>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                        <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                        <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                        <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Total:</td>
+                            <td></td>
+                            <td id="heatTotal">#1</td>
+                            <td id="workTotal">#2</td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             <div id="cycleResults">
@@ -157,13 +195,21 @@
                 $.getJSON($SCRIPT_ROOT + '/_runcycle', {
                     workingFluid: $('#workingFluid').val(),
                     highPressure: $('#highPressure').val(),
-                    lowPressure: $('#lowPressure').val()
+                    lowPressure: $('#lowPressure').val(),
+                    maxTemperature: $('#maxTemperature').val(),
+                    turbineEfficiency: $('#turbineEfficiency').val(),
+                    pumpEfficiency: $('#pumpEfficiency').val(),
+                    massFlowRate: $('#massFlowRate').val(),
+                    units: $('#units').val()
                 }, function(data) {
                     console.table(data);
-                    $("#result").text(data.cycle.en_eff * 100);
+                    var therm_eff = parseFloat(data.cycle.en_eff*100).toFixed(2)
+                    $("#result").text(therm_eff + ' %');
                     // update state table with data
                     // var $table = $('#stateTableBody');
                     // $table.empty();
+                    
+                    // Populate State Table
                     var rows = '';
                     states = data.cycle.states;
                     for (var i=0, l=states.length; i<l; i++) {
@@ -181,6 +227,29 @@
                     }
                     console.log(rows);
                     $('#stateTable > tbody').html(rows);
+                    
+                    // Populate Process Table
+                    var rows = '';
+                    var heatTotal = 0.0;
+                    var workTotal = 0.0;
+                    processes = data.cycle.processes;
+                    for (var i=0, l=processes.length; i<l; i++) {
+                        process = processes[i];
+                        var row = '<tr>';
+                        console.log(process);
+                        row += '<td>' + process['name'] + '</td>';
+                        row += '<td>' + process['state_in'] + '->' + process['state_out'] + '</td>';
+                        heat = parseFloat(process['heat']);
+                        work = parseFloat(process['work']);
+                        row += '<td>' +  heat.toFixed(2) + '</td><td>' + work.toFixed(2) + '</td></tr>';
+                        rows += row
+                        heatTotal += heat;
+                        workTotal += work;
+                        console.log(row);
+                    }
+                    $('#processTable > tbody').html(rows);
+                    $('#heatTotal').text(heatTotal.toFixed(2));
+                    $('#workTotal').text(workTotal.toFixed(2));
                 });
                 return false;
             });

@@ -13,11 +13,18 @@ def hello_name(name):
     
 @app.route('/_runcycle')
 def runcycle():
-    props = {}
-    props["fluid"] = request.args.get('workingFluid', 'Water', type=str)
-    props["p_hi"] = request.args.get('highPressure', 0.0, type=float)
-    props["p_lo"] = request.args.get('lowPressure', 0.0, type=float)
+    props = {
+        "fluid": request.args.get('workingFluid', 'Water', type=str),
+        "p_hi": request.args.get('highPressure', 0.0, type=float),
+        "p_lo": request.args.get('lowPressure', 0.0, type=float),
+        "t_hi": request.args.get('maxTemperature', None, type=float),
+        "turb_eff": request.args.get('turbineEfficiency', 1.0, type=float),
+        "pump_eff": request.args.get('pumpEfficiency', 1.0, type=float),
+        "cycle_mdot": request.args.get('massFlowRate', 1.0, type=float),
+        "superheat":  request.args.get('superheat', False, type=bool),
+    }
     cycle = compute_cycle(props)
+    print cycle.serialize()
     # convert relevant data in cycle object to dict
     return jsonify(cycle=cycle.serialize())
 

@@ -1,0 +1,10 @@
+/* Custom CSS for whatsmyrankine.com */
+
+.rankine-input {
+    padding: 4px;
+}
+
+.rankine-form-label {
+    padding-right: 6px;
+    padding-left: 6px;
+}
