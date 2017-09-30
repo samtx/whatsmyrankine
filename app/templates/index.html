@@ -124,11 +124,11 @@
 
         <!-- Results Table -->
         Thermal efficiency = <span id="result">?</span>
-        <div id="results" class="show">
-            <div class="table-responsive">
-                <table id="stateTable" class="table table-bordered">
+        <div id="results row" class="show">
+            <div class="table-responsive col-sm-8">
+                <table id="stateTable" class="table table-bordered table-sm table-bordered table-striped">
                     <!--<caption>State Table</caption>-->
-                    <thead>
+                    <thead class='thead-default'>
                         <tr>
                         <th>State</th>
                         <th class="col-2">Temperature</th>
@@ -152,10 +152,10 @@
                 </table>
             </div>
             
-            <div class="table-responsive">
-                <table id="processTable" class="table table-responsive table-bordered">
+            <div class="table-responsive col-sm-4">
+                <table id="processTable" class="table table-responsive table-bordered table-sm table-bordered table-striped">
                     <!--<caption>State Table</caption>-->
-                    <thead>
+                    <thead class='thead-default'>
                         <tr>
                         <th>Process</th>
                         <th class="col-2">States</th>
@@ -238,7 +238,7 @@
                         var row = '<tr>';
                         console.log(process);
                         row += '<td>' + process['name'] + '</td>';
-                        row += '<td>' + process['state_in'] + '->' + process['state_out'] + '</td>';
+                        row += '<td>' + process['state_in'] + ' &#10145; ' + process['state_out'] + '</td>';
                         heat = parseFloat(process['heat']);
                         work = parseFloat(process['work']);
                         row += '<td>' +  heat.toFixed(2) + '</td><td>' + work.toFixed(2) + '</td></tr>';
