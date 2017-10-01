@@ -39,7 +39,7 @@
                       <div class="form-group row">
                         <label for="workingFluid" class="col-sm-4 control-label">Working Fluid</label>
                         <div class="col-sm-4">
-                             <select disabled class="c-select form-control" id="workingFluid">
+                            <select disabled class="c-select form-control" id="workingFluid">
                               <option selected value="Water">Water</option>
                               <option value="Ammonia">Ammonia</option>
                               <option value="Propane">Propane</option>
@@ -51,31 +51,31 @@
                   <div class="form-group row">
                     <label for="highPressure" class="col-sm-4 col-form-label control-label ">High Pressure</label>
                     <div class="col-sm-4">
-                      <input type="number" step="any" min="0" value=10 class="form-control rankine-input" id="highPressure">
+                      <input type="number" step="any" min="0.000001" value=10 class="form-control rankine-input" id="highPressure">
                     </div>
-                    <label for="pressureUnits" class="col-sm-1 control-label">MPa</label>
+                    <label for="highPressure" class="col-sm-1 control-label pressureUnits">MPa</label>
                   </div>
                   <!-- Low Pressure -->
                   <div class="form-group">
                     <label for="lowPressure" class="col-sm-4 control-label rankine-form-label">Low Pressure</label>
                     <div class="col-sm-4">
-                      <input type="number" step="any" min="0" value=2 class="form-control rankine-input" id="lowPressure">
+                      <input type="number" step="any" min="0.000001" value=0.1 class="form-control rankine-input" id="lowPressure">
                     </div>
-                    <label for="pressureUnits" class="col-sm-1 control-label">MPa</label>
+                    <label for="lowPressure" class="col-sm-1 control-label pressureUnits">MPa</label>
                   </div>
                   <!-- Max Temperature -->
-                  <div class="form-group">
-                    <label for="maxTemperature" class="col-sm-4 control-label">Max Temperature</label>
-                    <div class="col-sm-4">
-                      <input disabled type="number" step="any" class="form-control rankine-input" id="maxTemperature">
-                    </div>
-                    <label for="temperatureUnits" class="col-sm-1 control-label">&deg;C</label>
-                  </div>
+                  <!--<div class="form-group">-->
+                  <!--  <label for="maxTemperature" class="col-sm-4 control-label">Max Temperature</label>-->
+                  <!--  <div class="col-sm-4">-->
+                  <!--    <input type="number" step="any" class="form-control rankine-input" id="maxTemperature">-->
+                  <!--  </div>-->
+                  <!--  <label for="maxTemperature" class="col-sm-1 control-label tempUnits">&deg;C</label>-->
+                  <!--</div>-->
                   <!-- Turbine Efficiency -->
                   <div class="form-group">
                     <label for="turbineEfficiency" class="col-sm-4 control-label">Turbine Efficiency</label>
                     <div class="col-sm-4">
-                      <input disabled type="number" step="any" min="0" max="100" class="form-control rankine-input" id="turbineEfficiency">
+                      <input type="number" step="any" min="0.001" max="100" value="100" class="form-control rankine-input" id="turbineEfficiency">
                     </div>
                     <label for="efficiencyUnits" class="col-sm-1 control-label">%</label>
                   </div>
@@ -83,24 +83,24 @@
                   <div class="form-group">
                     <label for="pumpEfficiency" class="col-sm-4 control-label">Pump Efficiency</label>
                     <div class="col-sm-4">
-                      <input disabled type="number" step="any" min="0" max="100" class="form-control rankine-input" id="pumpEfficiency">
+                      <input type="number" step="any" min="0.001" max="100" value="100" class="form-control rankine-input" id="pumpEfficiency">
                     </div>
                     <label for="efficiencyUnits" class="col-sm-1 control-label">%</label>
                   </div>
                   <!-- Mass Flow Rate -->
-                  <div class="form-group">
-                    <label for="massFlowRate" class="col-sm-4 control-label">Mass Flow Rate</label>
-                    <div class="col-sm-4">
-                      <input disabled type="number" step="any" min="0" class="form-control rankine-input" id="massFlowRate">
-                    </div>
-                    <label for="massFlowRateUnits" class="col-sm-1 control-label">kg/s</label>
-                  </div>
+                  <!--<div class="form-group">-->
+                  <!--  <label for="massFlowRate" class="col-sm-4 control-label">Mass Flow Rate</label>-->
+                  <!--  <div class="col-sm-4">-->
+                  <!--    <input disabled type="number" step="any" min="0" class="form-control rankine-input" id="massFlowRate">-->
+                  <!--  </div>-->
+                  <!--  <label for="massFlowRateUnits" class="col-sm-1 control-label">kg/s</label>-->
+                  <!--</div>-->
                   <!-- Units -->
                  <!--<fieldset disabled>-->
                  <div class="form-group">
                         <label for="units" class="col-sm-4 control-label">Units</label>
                         <div class="col-sm-4">
-                             <select disabled class="c-select form-control rankine-input" id="units">
+                             <select class="c-select form-control rankine-input" id="units">
                               <option selected value="SI">SI</option>
                               <option value="English">English</option>
                             </select>
@@ -131,12 +131,12 @@
                     <thead class='thead-default'>
                         <tr>
                         <th>State</th>
-                        <th class="col-2">Temperature</th>
-                        <th class="col-2">Pressure</th>
-                        <th class="col-2">Volume</th>
-                        <th class="col-2">Enthalpy</th>
-                        <th class="col-2">Entropy</th>
-                        <th class="col-2">Flow Exergy</th>
+                        <th class="col-2">Temperature<br/><span class="tempUnits"></span></th>
+                        <th class="col-2">Pressure<br/><span class="pressureUnits"></span></th>
+                        <th class="col-2">Volume<br/><span class="volumeUnits"></span></th>
+                        <th class="col-2">Enthalpy<br/><span class="energyUnits"></span></th>
+                        <th class="col-2">Entropy<br/><span class="entropyUnits"></span></th>
+                        <th class="col-2">Flow Exergy<br/><span class="energyUnits"></span></th>
                         <th class="col-1">Quality</th>
                         </tr>
                     </thead>
@@ -159,8 +159,8 @@
                         <tr>
                         <th>Process</th>
                         <th class="col-2">States</th>
-                        <th class="col-2">Heat In</th>
-                        <th class="col-2">Work Out</th>
+                        <th class="col-2">Heat In<br/><span class="energyUnits"></span></th>
+                        <th class="col-2">Work Out<br/><span class="energyUnits"></span></th>
                     </thead>
                     <tbody>
                         <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
@@ -172,8 +172,8 @@
                         <tr>
                             <td>Total:</td>
                             <td></td>
-                            <td id="heatTotal">#1</td>
-                            <td id="workTotal">#2</td>
+                            <td id="heatTotal" style="text-align:right">#1</td>
+                            <td id="workTotal" style="text-align:right">#2</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -189,6 +189,11 @@
          <!-- jQuery Version 1.11.1 -->
     <script type='text/javascript' src="../static/js/jquery.js"></script>
     <script>
+        function formatData(val, prop) {
+            
+        }
+    </script>
+    <script>
         $SCRIPT_ROOT = {{ request.script_root | tojson | safe }};
         $(function() {
             $('#runcycle').on('click', function() {
@@ -196,11 +201,11 @@
                     workingFluid: $('#workingFluid').val(),
                     highPressure: $('#highPressure').val(),
                     lowPressure: $('#lowPressure').val(),
-                    maxTemperature: $('#maxTemperature').val(),
-                    turbineEfficiency: $('#turbineEfficiency').val(),
-                    pumpEfficiency: $('#pumpEfficiency').val(),
-                    massFlowRate: $('#massFlowRate').val(),
-                    units: $('#units').val()
+                    // maxTemperature: $('#maxTemperature').val(),
+                    turbineEfficiency: $('#turbineEfficiency').val()/100.0,
+                    pumpEfficiency: $('#pumpEfficiency').val()/100.0,
+                    // massFlowRate: $('#massFlowRate').val(),
+                    // units: $('#units').val()
                 }, function(data) {
                     console.table(data);
                     var therm_eff = parseFloat(data.cycle.en_eff*100).toFixed(2)
@@ -209,6 +214,36 @@
                     // var $table = $('#stateTableBody');
                     // $table.empty();
                     
+                    // Get unit conversion factors
+                    if ($('#units').val() == 'SI') {
+                        pressureFactor = 0.000001;  // Pa to MPa
+                        energyFactor = 0.001;     // J to KJ
+                        tempFactor = 1;    // K to deg C
+                        tempShift = -273;
+                        entropyFactor = 0.001;  // J/kg K to kJ/kg K
+                        volumeFactor = 1;
+                        
+                        pressureUnits = 'MPa';
+                        tempUnits = '&deg;C';
+                        energyUnits = 'kJ/kg';
+                        entropyUnits = 'kJ/kg K';
+                        volumeUnits = 'm<sup>3</sup>/kg';
+                    }
+                    else {
+                        pressureFactor = 0.00014503773773;  //  Pa to lbf/in2
+                        energyFactor = 0.000429923; //    J/kg to Btu/lbm
+                        tempFactor = 9.0/5.0; //     K to deg F
+                        tempShift = -459.67;  //  tempFactor * T + tempShift
+                        entropyFactor = 0.000238845897;  // J/kg K to Btu/lb R
+                        volumeFactor = 0.0624;  //  m3/kg to ft3/lb
+                        
+                        pressureUnits = 'lbf/in<sup>2</sup>';
+                        tempUnits = '&deg;F';
+                        energyUnits = 'Btu/lb';
+                        entropyUnits = 'Btu/lb &deg;R';
+                        volumeUnits = 'ft<sup>3</sup>/lb';
+                    }
+                                        
                     // Populate State Table
                     var rows = '';
                     states = data.cycle.states;
@@ -216,12 +251,21 @@
                         state = states[i];
                         var row = '<tr>';
                         console.log(state);
-                        data_vars = ['name','T','p','v','h','s','ef','x'];
-                        for (var j=0, k=data_vars.length; j<k; j++) {
-                            property = data_vars[j];
-                            console.log(property);
-                            row += '<td>' +  parseFloat(state[property]).toFixed(2) + '</td>';
+                        row += '<td>' + state['name'] + '</td>';
+                        row += '<td>'+(tempFactor*parseFloat(state['T'])+tempShift).toFixed(1)+'</td>';
+                        row += '<td>'+(pressureFactor*parseFloat(state['p'])).toFixed(2)+'</td>';
+                        row += '<td>'+(volumeFactor*parseFloat(state['v'])).toExponential(4)+'</td>';
+                        row += '<td>'+(energyFactor*parseFloat(state['h'])).toFixed(2)+'</td>';
+                        row += '<td>'+(entropyFactor*parseFloat(state['s'])).toFixed(4)+'</td>';
+                        row += '<td>'+(energyFactor*parseFloat(state['ef'])).toFixed(2)+'</td>';
+                        x = state['x'];
+                        row += '<td>';
+                        if (isNaN(parseFloat(x))) {
+                            row += x;
+                        } else {
+                            row += parseFloat(x).toFixed(2);
                         }
+                        row += '</td>';
                         console.log(row);
                         rows += row + '</tr>';
                     }
@@ -239,9 +283,9 @@
                         console.log(process);
                         row += '<td>' + process['name'] + '</td>';
                         row += '<td>' + process['state_in'] + ' &#10145; ' + process['state_out'] + '</td>';
-                        heat = parseFloat(process['heat']);
-                        work = parseFloat(process['work']);
-                        row += '<td>' +  heat.toFixed(2) + '</td><td>' + work.toFixed(2) + '</td></tr>';
+                        heat = parseFloat(process['heat'])*energyFactor;
+                        work = parseFloat(process['work'])*energyFactor;
+                        row += '<td style="text-align:right">' +  heat.toFixed(2) + '</td><td style="text-align:right">' + work.toFixed(2) + '</td></tr>';
                         rows += row
                         heatTotal += heat;
                         workTotal += work;
@@ -250,6 +294,14 @@
                     $('#processTable > tbody').html(rows);
                     $('#heatTotal').text(heatTotal.toFixed(2));
                     $('#workTotal').text(workTotal.toFixed(2));
+                    
+                    // Use correct units in table headers
+                    $('table').find('.tempUnits').html(tempUnits);
+                    $('table').find('.pressureUnits').html(pressureUnits);
+                    $('table').find('.volumeUnits').html(volumeUnits);
+                    $('table').find('.energyUnits').html(energyUnits);
+                    $('table').find('.entropyUnits').html(entropyUnits);
+                    $('#stateTable').find('tr').css('text-align', 'right');
                 });
                 return false;
             });
