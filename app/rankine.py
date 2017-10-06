@@ -56,6 +56,7 @@ def compute_cycle(props):
     pump_eff = props.get('pump_eff',1.0)
     superheat = props.get('superheat',False)
     mdot = props.get('cycle_mdot',1.0)
+    useSI = props.get('useSI', True)
 
     # set dead state
     dead = thermo.State(None,'Dead State',fluid)
@@ -112,6 +113,7 @@ def compute_cycle(props):
         st1.s = CP.PropsSI('S','P',p_hi,'Q',1,fluid)
         st1.h = h_sat
         st1.T = CP.PropsSI('T','P',p_hi,'Q',1,fluid)
+        st1.u = CP.PropsSI('U','P',p_hi,'Q',1,fluid)
         st1.flow_exergy()
 
     # State 2s, two-phase at low temperature with same entropy as state 1

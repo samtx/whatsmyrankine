@@ -22,8 +22,10 @@ def runcycle():
         "pump_eff": request.args.get('pumpEfficiency', 1.0, type=float),
         "cycle_mdot": request.args.get('massFlowRate', 1.0, type=float),
         "superheat":  request.args.get('superheat', False, type=bool),
+        "useSI": request.args.get('useSI', True, type=bool)
     }
     cycle = compute_cycle(props)
+    print(cycle.get_states()[0].u)
     print cycle.serialize()
     # convert relevant data in cycle object to dict
     return jsonify(cycle=cycle.serialize())

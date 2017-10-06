@@ -33,22 +33,23 @@ class State(object):
         return
 
     def __str__(self):
-        return self._name
+        return self.name
 
     def __repr__(self):
         return self.name
         
     def serialize(self):
+        print(self.name)
         data = {
             'name': self.name,
-            'T': self.T,
-            'p': self.p,
+            'T': self.T-273.0,
+            'p': self.p/float(1e6),
             'd': self.d,
             'v': self.v,
-            'u': self.u,
-            'h': self.h,
-            's': self.s,
-            'ef': self.ef,
+            'u': self.u/1000.0,
+            'h': self.h/1000.0,
+            's': self.s/1000.0,
+            'ef': self.ef/1000.0,
             'x': self.x
         }
         return data
@@ -72,15 +73,15 @@ class State(object):
             return
 
         # set state properties
-        self.T = None
-        self.p = None
-        self.d = 1
-        self.v = 1 / self.d
-        self.u = None
-        self.h = None
-        self.s = None
+        self.T = 0
+        self.p = 0
+        self.d = 0
+        self.v = 0
+        self.u = 0
+        self.h = 0
+        self.s = 0
         self.ef = 0  # default for dead state
-        self.x = None
+        self.x = 0
         return
 
 class Process(object):
@@ -98,8 +99,8 @@ class Process(object):
             'name': self.name,
             'state_in': self.in_.name,
             'state_out': self.out.name,
-            'heat': self.heat,
-            'work': self.work
+            'heat': self.heat/1000.0,
+            'work': self.work/1000.0
         }
         return data
 
@@ -148,8 +149,11 @@ class Cycle(object):
         return self.name
         
     def serialize(self):
-        data = {}
-        data['en_eff'] = self.en_eff
+        data = {
+            'en_eff': self.en_eff,
+            'bwr': self.bwr,
+            'ex_eff': self.ex_eff
+        }
         state_list = self.get_states()
         data['states'] = []
         for state in state_list:

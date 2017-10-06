@@ -6,28 +6,28 @@
     <div class="container">
 
         <!-- Website Title -->
-        <div class="form-group row">
-            <label for="rankineCycleType" class="control-label col-sm-4 text-right" style="vertical-align: middle">Rankine cycle type:</label>
-            <div class="btn-group col-sm-8" data-toggle="buttons">
-                <label class="btn btn-info" style="margin:0 5px 0 5px">
-                    <input type="radio" name="rankineCycleType" id="Standard" class='btn btn-large active col-sm-2' checked/>Standard
-                </label>
-                <label class="btn btn-info" style="margin:0 5px 0 5px">
-                    <input type="radio" name="rankineCycleType" id="Superheated" class='btn btn-large active col-sm-2' checked/>Superheated
-                </label>
-                <label class="btn btn-info" style="margin:0 5px 0 5px">
-                    <input type="radio" name="rankineCycleType" id="Reheated" class='btn btn-large active col-sm-2' checked/>Reheated
-                </label>
-                <label class="btn btn-info" style="margin:0 5px 0 5px">
-                    <input type="radio" name="rankineCycleType" id="Regenerated" class='btn btn-large active col-sm-2' checked/>Regenerated
-                </label>
+        <!--<div class="form-group row">-->
+        <!--    <label for="rankineCycleType" class="control-label col-sm-4 text-right" style="vertical-align: middle">Rankine cycle type:</label>-->
+        <!--    <div class="btn-group col-sm-8" data-toggle="buttons">-->
+        <!--        <label class="btn btn-info" style="margin:0 5px 0 5px">-->
+        <!--            <input type="radio" name="rankineCycleType" id="Standard" class='btn btn-large active col-sm-2' checked/>Standard-->
+        <!--        </label>-->
+        <!--        <label class="btn btn-info" style="margin:0 5px 0 5px">-->
+        <!--            <input type="radio" name="rankineCycleType" id="Superheated" class='btn btn-large active col-sm-2' checked/>Superheated-->
+        <!--        </label>-->
+        <!--        <label class="btn btn-info" style="margin:0 5px 0 5px">-->
+        <!--            <input type="radio" name="rankineCycleType" id="Reheated" class='btn btn-large active col-sm-2' checked/>Reheated-->
+        <!--        </label>-->
+        <!--        <label class="btn btn-info" style="margin:0 5px 0 5px">-->
+        <!--            <input type="radio" name="rankineCycleType" id="Regenerated" class='btn btn-large active col-sm-2' checked/>Regenerated-->
+        <!--        </label>-->
                 
               <!--<a href="#prices2" class="btn btn-large active " data-toggle="tab">Standard</a>-->
               <!--<a href="#features2" class="btn btn-large " data-toggle="tab">Superheated</a>-->
               <!--<a href="#requests2" class="btn btn-large " data-toggle="tab">Re-heated</a>-->
               <!--<a href="#contact2" class="btn btn-large "  data-toggle="tab">Regenerated</a>-->
-            </div>
-        </div>
+        <!--    </div>-->
+        <!--</div>-->
         <!-- /.row -->
 
         <!-- Input cycle params -->
@@ -35,6 +35,15 @@
             <!-- Parameter Input Form -->
             <div class="col-md-5">
                 <form id="cycle-params" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="units" class="col-sm-4 control-label">Units</label>
+                        <div class="col-sm-4">
+                             <select class="c-select form-control rankine-input" id="units">
+                              <option selected value="SI">SI</option>
+                              <option value="English">English</option>
+                            </select>
+                        </div>
+                    </div>
                   <!-- Working Fluid -->
                       <div class="form-group row">
                         <label for="workingFluid" class="col-sm-4 control-label">Working Fluid</label>
@@ -97,15 +106,7 @@
                   <!--</div>-->
                   <!-- Units -->
                  <!--<fieldset disabled>-->
-                 <div class="form-group">
-                        <label for="units" class="col-sm-4 control-label">Units</label>
-                        <div class="col-sm-4">
-                             <select class="c-select form-control rankine-input" id="units">
-                              <option selected value="SI">SI</option>
-                              <option value="English">English</option>
-                            </select>
-                        </div>
-                  </div>
+                 
                   <!-- Run cycle button -->
                   <div class="row">
                       <div class="col-sm-4">
@@ -118,76 +119,82 @@
             </div>
             <!-- Rankine Cycle Diagram -->
             <div class="col-md-7">
-                <img src="../static/img/rankine_cycle-min.jpg" style="max-height:400px" class="text-center img-responsive">
+                <img src="../static/img/rankine_cycle-min.jpg" style="max-height:300px" class="text-center img-responsive">
             </div>
         </div>
 
         <!-- Results Table -->
-        Thermal efficiency = <span id="result">?</span>
-        <div id="results row" class="show">
-            <div class="table-responsive col-sm-8">
-                <table id="stateTable" class="table table-bordered table-sm table-bordered table-striped">
-                    <!--<caption>State Table</caption>-->
-                    <thead class='thead-default'>
-                        <tr>
-                        <th>State</th>
-                        <th class="col-2">Temperature<br/><span class="tempUnits"></span></th>
-                        <th class="col-2">Pressure<br/><span class="pressureUnits"></span></th>
-                        <th class="col-2">Volume<br/><span class="volumeUnits"></span></th>
-                        <th class="col-2">Enthalpy<br/><span class="energyUnits"></span></th>
-                        <th class="col-2">Entropy<br/><span class="entropyUnits"></span></th>
-                        <th class="col-2">Flow Exergy<br/><span class="energyUnits"></span></th>
-                        <th class="col-1">Quality</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
-                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
-                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
-                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
-                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
-                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
-                        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="table-responsive col-sm-4">
-                <table id="processTable" class="table table-responsive table-bordered table-sm table-bordered table-striped">
-                    <!--<caption>State Table</caption>-->
-                    <thead class='thead-default'>
-                        <tr>
-                        <th>Process</th>
-                        <th class="col-2">States</th>
-                        <th class="col-2">Heat In<br/><span class="energyUnits"></span></th>
-                        <th class="col-2">Work Out<br/><span class="energyUnits"></span></th>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
-                        <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
-                        <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
-                        <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td>Total:</td>
-                            <td></td>
-                            <td id="heatTotal" style="text-align:right">#1</td>
-                            <td id="workTotal" style="text-align:right">#2</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <div id="cycleResults">
-                <table class="table table-responsive table-bordered">
-                </table>
-            </div>
+        <div id="cycleResults">
+ 
+            <div id="results row" class="show">
+                <div class="table-responsive col-sm-8">
+                    <table id="stateTable" class="table table-bordered table-sm table-bordered table-striped">
+                        <!--<caption>State Table</caption>-->
+                        <thead class='thead-default'>
+                            <tr>
+                            <th>State</th>
+                            <th class="col-2">Temp.<br/><span class="tempUnits"></span></th>
+                            <th class="col-2">Pressure<br/><span class="pressureUnits"></span></th>
+                            <th class="col-2">Volume<br/><span class="volumeUnits"></span></th>
+                            <th class="col-2">Enthalpy<br/><span class="energyUnits"></span></th>
+                            <th class="col-2">Entropy<br/><span class="entropyUnits"></span></th>
+                            <th class="col-2">Flow Exergy<br/><span class="energyUnits"></span></th>
+                            <th class="col-1">Quality</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+                            <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+                            <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+                            <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+                            <!--<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>-->
+                            <!--<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>-->
+                            <!--<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>-->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="table-responsive col-sm-4">
+                    <table id="processTable" class="table table-responsive table-bordered table-sm table-bordered table-striped">
+                        <!--<caption>State Table</caption>-->
+                        <thead class='thead-default'>
+                            <th>Process</th>
+                            <th class="col-2">States</th>
+                            <th class="col-2">Heat In<br/><span class="energyUnits"></span></th>
+                            <th class="col-2">Work Out<br/><span class="energyUnits"></span></th>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                            <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                            <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                            <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Total:</td>
+                                <td></td>
+                                <td id="heatTotal" style="text-align:right">#1</td>
+                                <td id="workTotal" style="text-align:right">#2</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>                
+                
+            <div class="cycle-results">
+                    <!--<p>-->
+                        Thermal efficiency = <span id="thermEff">thermEff</span></br>
+                        Back work ratio = <span id="bwr">bwr</span></br>
+                        Exergetic efficiency = <span id="exEff">exEff</span>
+                    <!--</p>-->
+                </div>
+
         </div>
 
     </div>
     <!-- Javascript for Computing Rankine Cycle -->
          <!-- jQuery Version 1.11.1 -->
-    <script type='text/javascript' src="../static/js/jquery.js"></script>
+    <!--<script type='text/javascript' src="../static/js/jquery.js"></script>-->
     <script>
         function formatData(val, prop) {
             
@@ -196,7 +203,67 @@
     <script>
         $SCRIPT_ROOT = {{ request.script_root | tojson | safe }};
         $(function() {
+            
+            function getUnits() {
+                // Get unit conversion factors
+                console.log($('#units').val()); 
+                    if ($('#units').val() == 'SI') {
+                        console.log('yes!');
+                        var units = {
+                            useSI: true,
+                            pressureFactor: 0.00689476,  //  lbf/in2 to MPa 
+                            energyFactor: 2.326, //     Btu/lbm to kJ/kg 
+                            tempFactor: 5.0/9.0, //     def F to deg C
+                            tempShift: -32,  //  tempFactor * T + tempShift
+                            entropyFactor: 4.1868,  // Btu/lb R to kJ/kg K 
+                            volumeFactor: 0.062428,  //   ft3/lb to m3/kg
+                            
+                            pressureUnits: 'MPa',
+                            tempUnits: '&deg;C',
+                            energyUnits: 'kJ/kg',
+                            entropyUnits: 'kJ/kg K',
+                            volumeUnits: 'm<sup>3</sup>/kg'
+                        };
+                        
+                    }
+                    else {
+                        var units = {
+                            useSI: false,
+                            pressureFactor: 1/0.00689476,  //  MPa to lbf/in2
+                            energyFactor: 1/2.326, //    kJ/kg to Btu/lbm
+                            tempFactor: 9.0/5.0, //     deg C to deg F
+                            tempShift: +32,  //  tempFactor * T + tempShift
+                            entropyFactor: 1/4.1868,  // kJ/kg K to Btu/lb R
+                            volumeFactor:1/0.062428,  //  m3/kg to ft3/lb
+                            
+                            pressureUnits: 'lbf/in<sup>2</sup>',
+                            tempUnits: '&deg;F',
+                            energyUnits: 'Btu/lb',
+                            entropyUnits: 'Btu/lb &deg;R',
+                            volumeUnits: 'ft<sup>3</sup>/lb'
+                        }
+                    };
+                    return units;
+            };
+            
+            $('#units').on('change', function() {
+                // Use correct units in form input
+                units = getUnits()
+                // $('#cycle-params').find('.tempUnits').html(tempUnits);
+                oldLowPressure = $('#lowPressure').val();
+                oldHighPressure = $('#highPressure').val();
+                $('#lowPressure').val(oldLowPressure*=units.pressureFactor);
+                $('#highPressure').val(oldHighPressure*=units.pressureFactor);
+                $('#cycle-params').find('.pressureUnits').html(units.pressureUnits);
+            });
+            
             $('#runcycle').on('click', function() {
+                if ($('#units').val() == 'SI') {
+                        var useSI = true;
+                    }
+                    else {
+                        var useSI = false;
+                    }
                 $.getJSON($SCRIPT_ROOT + '/_runcycle', {
                     workingFluid: $('#workingFluid').val(),
                     highPressure: $('#highPressure').val(),
@@ -204,45 +271,23 @@
                     // maxTemperature: $('#maxTemperature').val(),
                     turbineEfficiency: $('#turbineEfficiency').val()/100.0,
                     pumpEfficiency: $('#pumpEfficiency').val()/100.0,
+                    useSI: useSI
+                    
+                    
                     // massFlowRate: $('#massFlowRate').val(),
                     // units: $('#units').val()
                 }, function(data) {
                     console.table(data);
-                    var therm_eff = parseFloat(data.cycle.en_eff*100).toFixed(2)
-                    $("#result").text(therm_eff + ' %');
+                    $("#thermEff").text(parseFloat(data.cycle.en_eff*100).toFixed(2) + ' %');
+                    $("#bwr").text(parseFloat(data.cycle.bwr).toExponential(2));
+                    $("#exEff").text(parseFloat(data.cycle.ex_eff*100).toFixed(2) + ' %');
+                    
                     // update state table with data
                     // var $table = $('#stateTableBody');
                     // $table.empty();
                     
-                    // Get unit conversion factors
-                    if ($('#units').val() == 'SI') {
-                        pressureFactor = 0.000001;  // Pa to MPa
-                        energyFactor = 0.001;     // J to KJ
-                        tempFactor = 1;    // K to deg C
-                        tempShift = -273;
-                        entropyFactor = 0.001;  // J/kg K to kJ/kg K
-                        volumeFactor = 1;
-                        
-                        pressureUnits = 'MPa';
-                        tempUnits = '&deg;C';
-                        energyUnits = 'kJ/kg';
-                        entropyUnits = 'kJ/kg K';
-                        volumeUnits = 'm<sup>3</sup>/kg';
-                    }
-                    else {
-                        pressureFactor = 0.00014503773773;  //  Pa to lbf/in2
-                        energyFactor = 0.000429923; //    J/kg to Btu/lbm
-                        tempFactor = 9.0/5.0; //     K to deg F
-                        tempShift = -459.67;  //  tempFactor * T + tempShift
-                        entropyFactor = 0.000238845897;  // J/kg K to Btu/lb R
-                        volumeFactor = 0.0624;  //  m3/kg to ft3/lb
-                        
-                        pressureUnits = 'lbf/in<sup>2</sup>';
-                        tempUnits = '&deg;F';
-                        energyUnits = 'Btu/lb';
-                        entropyUnits = 'Btu/lb &deg;R';
-                        volumeUnits = 'ft<sup>3</sup>/lb';
-                    }
+                    // Get correct unit conversions and headers
+                    units = getUnits();
                                         
                     // Populate State Table
                     var rows = '';
@@ -252,12 +297,12 @@
                         var row = '<tr>';
                         console.log(state);
                         row += '<td>' + state['name'] + '</td>';
-                        row += '<td>'+(tempFactor*parseFloat(state['T'])+tempShift).toFixed(1)+'</td>';
-                        row += '<td>'+(pressureFactor*parseFloat(state['p'])).toFixed(2)+'</td>';
-                        row += '<td>'+(volumeFactor*parseFloat(state['v'])).toExponential(4)+'</td>';
-                        row += '<td>'+(energyFactor*parseFloat(state['h'])).toFixed(2)+'</td>';
-                        row += '<td>'+(entropyFactor*parseFloat(state['s'])).toFixed(4)+'</td>';
-                        row += '<td>'+(energyFactor*parseFloat(state['ef'])).toFixed(2)+'</td>';
+                        row += '<td>'+(units.tempFactor*parseFloat(state['T'])+units.tempShift).toFixed(1)+'</td>';
+                        row += '<td>'+(units.pressureFactor*parseFloat(state['p'])).toFixed(2)+'</td>';
+                        row += '<td>'+(units.volumeFactor*parseFloat(state['v'])).toExponential(4)+'</td>';
+                        row += '<td>'+(units.energyFactor*parseFloat(state['h'])).toFixed(2)+'</td>';
+                        row += '<td>'+(units.entropyFactor*parseFloat(state['s'])).toFixed(4)+'</td>';
+                        row += '<td>'+(units.energyFactor*parseFloat(state['ef'])).toFixed(2)+'</td>';
                         x = state['x'];
                         row += '<td>';
                         if (isNaN(parseFloat(x))) {
@@ -283,8 +328,8 @@
                         console.log(process);
                         row += '<td>' + process['name'] + '</td>';
                         row += '<td>' + process['state_in'] + ' &#10145; ' + process['state_out'] + '</td>';
-                        heat = parseFloat(process['heat'])*energyFactor;
-                        work = parseFloat(process['work'])*energyFactor;
+                        heat = parseFloat(process['heat'])*units.energyFactor;
+                        work = parseFloat(process['work'])*units.energyFactor;
                         row += '<td style="text-align:right">' +  heat.toFixed(2) + '</td><td style="text-align:right">' + work.toFixed(2) + '</td></tr>';
                         rows += row
                         heatTotal += heat;
@@ -296,11 +341,11 @@
                     $('#workTotal').text(workTotal.toFixed(2));
                     
                     // Use correct units in table headers
-                    $('table').find('.tempUnits').html(tempUnits);
-                    $('table').find('.pressureUnits').html(pressureUnits);
-                    $('table').find('.volumeUnits').html(volumeUnits);
-                    $('table').find('.energyUnits').html(energyUnits);
-                    $('table').find('.entropyUnits').html(entropyUnits);
+                    $('table').find('.tempUnits').html(units.tempUnits);
+                    $('table').find('.pressureUnits').html(units.pressureUnits);
+                    $('table').find('.volumeUnits').html(units.volumeUnits);
+                    $('table').find('.energyUnits').html(units.energyUnits);
+                    $('table').find('.entropyUnits').html(units.entropyUnits);
                     $('#stateTable').find('tr').css('text-align', 'right');
                 });
                 return false;
